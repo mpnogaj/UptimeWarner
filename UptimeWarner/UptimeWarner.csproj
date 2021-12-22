@@ -50,8 +50,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Resources\Icon.ico</ApplicationIcon>
-  </PropertyGroup>
-  <PropertyGroup>
     <StartupObject>UptimeWarner.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
@@ -67,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppContext.cs" />
+    <Compile Include="Timer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -94,15 +93,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\GreenIcon.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\RedIcon.ico" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="Resources\GrayIcon.ico" />
     <None Include="Resources\Icon.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
