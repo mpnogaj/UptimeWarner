@@ -12,17 +12,23 @@ namespace UptimeWarner
         private readonly NotifyIcon _notifyIcon;
         private readonly Timer _timer;
         private readonly Timer _iconCycleTimer;
-        private readonly TimeSpan _warningTime = TimeSpan.FromDays(1);
-        private readonly TimeSpan _criticalTime = TimeSpan.FromDays(2);
+        private readonly TimeSpan _warningTime;
+        private readonly TimeSpan _criticalTime;
         private bool _isRedIcon;
         public AppContext()
         {
             Debug.Assert(_warningTime <= _criticalTime);
             // ReSharper disable once JoinDeclarationAndInitializer
             // ReSharper disable once RedundantAssignment
+            // ReSharper disable once ConvertToConstant.Local
             var isDebug = false;
 #if DEBUG
             isDebug = true;
+            _warningTime = TimeSpan.FromMinutes(15);
+            _criticalTime = TimeSpan.FromMinutes(15);
+#else
+            _warningTime = TimeSpan.FromDays(1);
+            _criticalTime = TimeSpan.FromDays(2);
 #endif
             _notifyIcon = new NotifyIcon
             {
