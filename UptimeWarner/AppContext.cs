@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
+using System.Text;
 using System.Windows.Forms;
 using UptimeWarner.Properties;
 
@@ -12,23 +13,15 @@ namespace UptimeWarner
         private readonly NotifyIcon _notifyIcon;
         private readonly Timer _timer;
         private readonly Timer _iconCycleTimer;
-        private readonly TimeSpan _warningTime;
-        private readonly TimeSpan _criticalTime;
         private bool _isRedIcon;
         public AppContext()
         {
-            Debug.Assert(_warningTime <= _criticalTime);
             // ReSharper disable once JoinDeclarationAndInitializer
             // ReSharper disable once RedundantAssignment
             // ReSharper disable once ConvertToConstant.Local
             var isDebug = false;
 #if DEBUG
             isDebug = true;
-            _warningTime = TimeSpan.FromMinutes(15);
-            _criticalTime = TimeSpan.FromMinutes(15);
-#else
-            _warningTime = TimeSpan.FromDays(1);
-            _criticalTime = TimeSpan.FromDays(2);
 #endif
             _notifyIcon = new NotifyIcon
             {
@@ -70,7 +63,7 @@ namespace UptimeWarner
                     }
 
                     _notifyIcon.Icon = IsWarning(uptime) ? Resources.RedIcon : Resources.GreenIcon;
-                    _notifyIcon.Text = IsWarning(uptime) ? Resources.restartRequired : string.Empty;
+                    _notifyIcon.Text = CreateMessage(uptime, IsWarning(uptime));
 
                     if (!IsCritical(uptime)) return;
                     sender.Destroy();
@@ -94,14 +87,14 @@ namespace UptimeWarner
             Application.Exit();
         }
 
-        private bool IsWarning(TimeSpan uptime)
+        private static bool IsWarning(TimeSpan uptime)
         {
-            return uptime > _warningTime;
+            return uptime > ConfigManager.Current.WarningTimeSpan;
         }
 
-        private bool IsCritical(TimeSpan uptime)
+        private static bool IsCritical(TimeSpan uptime)
         {
-            return uptime > _criticalTime;
+            return uptime > ConfigManager.Current.CriticalDeltaTimeSpan;
         }
 
         private static string TimeSpanToString(TimeSpan ts)
@@ -109,16 +102,22 @@ namespace UptimeWarner
             return $"{(ts.Days * 24 + ts.Hours):D2}:{ts.Minutes:D2}:{ts.Seconds:D2}";
         }
 
+        private static string CreateMessage(TimeSpan uptime, bool addWarn)
+        {
+            var builder = new StringBuilder();
+            builder.AppendLine(Resources.programName);
+            builder.AppendLine(string.Format(Resources.uptimeMessage, uptime.Days));
+            if(addWarn) builder.AppendLine(Resources.restartRequired);
+            return builder.ToString();
+        }
+
         /// <summary>
         /// Gets system uptime from win32 api
         /// </summary>
         /// <returns>Gets time span since the system started.</returns>
-        private TimeSpan GetUptime()
-        {
-            return TimeSpan.FromMilliseconds(GetTickCount64());
-        }
+        private static TimeSpan GetUptime() => TimeSpan.FromMilliseconds(GetTickCount64());
 
-        [DllImport("kernel32")]
+            [DllImport("kernel32")]
         private static extern ulong GetTickCount64();
     }
 }

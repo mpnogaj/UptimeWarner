@@ -100,6 +100,15 @@ namespace UptimeWarner.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Czas pracy systemu.
+        /// </summary>
+        internal static string programName {
+            get {
+                return ResourceManager.GetString("programName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon RedIcon {
@@ -110,7 +119,7 @@ namespace UptimeWarner.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wymagane ponowne uruchomienie.
+        ///   Looks up a localized string similar to Uruchom ponownie.
         /// </summary>
         internal static string restartRequired {
             get {
@@ -119,7 +128,16 @@ namespace UptimeWarner.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Czas pracy systemu: {0}.
+        ///   Looks up a localized string similar to System pracuje {0} dni.
+        /// </summary>
+        internal static string uptimeMessage {
+            get {
+                return ResourceManager.GetString("uptimeMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
         /// </summary>
         internal static string uptimeText {
             get {
