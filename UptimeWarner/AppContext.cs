@@ -93,7 +93,7 @@ namespace UptimeWarner
 
         private static bool IsCritical(TimeSpan uptime)
         {
-            return uptime > ConfigManager.Current.CriticalDeltaTimeSpan;
+            return uptime > ConfigManager.Current.CriticalDeltaTimeSpan + ConfigManager.Current.WarningTimeSpan;
         }
 
         private static string TimeSpanToString(TimeSpan ts)
