@@ -29,7 +29,6 @@ namespace UptimeWarner
                 // ReSharper disable once ConditionIsAlwaysTrueOrFalse
                 ContextMenu = isDebug ? new ContextMenu(new []
                 {
-                    new MenuItem(""),
                     new MenuItem(Resources.exit, AppExit)
                 }) : null,
 #endif

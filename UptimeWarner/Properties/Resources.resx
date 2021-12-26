@@ -145,4 +145,19 @@
   <data name="uptimeMessage" xml:space="preserve">
     <value>System pracuje {0} dni</value>
   </data>
+  <data name="badFlag" xml:space="preserve">
+    <value>Nieprawidłowa flaga. Aby wyświetlić listę wszystkich flag dodaj flagę --help lub -h</value>
+  </data>
+  <data name="availableFlags" xml:space="preserve">
+    <value>Dostępne flagi:</value>
+  </data>
+  <data name="createDefaultConfigFlagDesc" xml:space="preserve">
+    <value>--create-default-config-file -&gt; tworzy domyślny plik configuracyjny i kończy działanie programu</value>
+  </data>
+  <data name="startWithDefaultConfigFlagDesc" xml:space="preserve">
+    <value>--start-with-default-config -&gt; uruchamia program z domyślną konfiguracją</value>
+  </data>
+  <data name="help" xml:space="preserve">
+    <value>Pomoc</value>
+  </data>
 </root>

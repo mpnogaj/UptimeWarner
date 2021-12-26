@@ -61,6 +61,33 @@ namespace UptimeWarner.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dostępne flagi:.
+        /// </summary>
+        internal static string availableFlags {
+            get {
+                return ResourceManager.GetString("availableFlags", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nieprawidłowa flaga. Aby wyświetlić listę wszystkich flag dodaj flagę --help lub -h.
+        /// </summary>
+        internal static string badFlag {
+            get {
+                return ResourceManager.GetString("badFlag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to --create-default-config-file -&gt; tworzy domyślny plik configuracyjny i kończy działanie programu.
+        /// </summary>
+        internal static string createDefaultConfigFlagDesc {
+            get {
+                return ResourceManager.GetString("createDefaultConfigFlagDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wyjdź.
         /// </summary>
         internal static string exit {
@@ -86,6 +113,15 @@ namespace UptimeWarner.Properties {
             get {
                 object obj = ResourceManager.GetObject("GreenIcon", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pomoc.
+        /// </summary>
+        internal static string help {
+            get {
+                return ResourceManager.GetString("help", resourceCulture);
             }
         }
         
@@ -124,6 +160,15 @@ namespace UptimeWarner.Properties {
         internal static string restartRequired {
             get {
                 return ResourceManager.GetString("restartRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to --start-with-default-config -&gt; uruchamia program z domyślną konfiguracją.
+        /// </summary>
+        internal static string startWithDefaultConfigFlagDesc {
+            get {
+                return ResourceManager.GetString("startWithDefaultConfigFlagDesc", resourceCulture);
             }
         }
         
