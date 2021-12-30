@@ -19,7 +19,7 @@ namespace UptimeWarner.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -100,7 +100,7 @@ namespace UptimeWarner.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Czas pracy systemu.
+        ///   Looks up a localized string similar to Czas pracy komputera {0} dni.
         /// </summary>
         internal static string programName {
             get {
@@ -119,7 +119,7 @@ namespace UptimeWarner.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Uruchom ponownie.
+        ///   Looks up a localized string similar to Wymagany restart.
         /// </summary>
         internal static string restartRequired {
             get {
@@ -128,16 +128,16 @@ namespace UptimeWarner.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to System pracuje {0} dni.
+        ///   Looks up a localized string similar to --start-with-default-config -&gt; uruchamia program z domyślną konfiguracją.
         /// </summary>
-        internal static string uptimeMessage {
+        internal static string startWithDefaultConfigFlagDesc {
             get {
-                return ResourceManager.GetString("uptimeMessage", resourceCulture);
+                return ResourceManager.GetString("startWithDefaultConfigFlagDesc", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Czas pracy komputera {0}.
         /// </summary>
         internal static string uptimeText {
             get {
