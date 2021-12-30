@@ -30,6 +30,8 @@ namespace UptimeWarner
             }
         }
 
+        public bool IsRunning => _isRunning;
+
         public Timer() { }
         public Timer(Action<Timer> callback, TimeSpan deltaTime, bool shouldRunInstantly)
         {
